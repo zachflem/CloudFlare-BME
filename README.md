@@ -117,4 +117,3 @@ Project rows now include an **Open build** link to the matching Cloudflare Pages
 ## v1.7
 
 - Merged Account settings and Polling settings into one compact Settings panel.
-- Updated footer link to https://seezed.net/tools#cloudflare-build-monitor.
