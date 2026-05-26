@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Cloudflare Build Monitor",
+  "description": "Manual activity monitor for Cloudflare Pages builds with auto-sleep after inactivity. v1.4",
+  "version": "1.7.0",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://api.cloudflare.com/*"
+  ],
+  "action": {
+    "default_title": "Cloudflare Build Monitor",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/idle-16.png",
+      "32": "icons/idle-32.png",
+      "48": "icons/idle-48.png",
+      "128": "icons/idle-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/idle-16.png",
+    "32": "icons/idle-32.png",
+    "48": "icons/idle-48.png",
+    "128": "icons/idle-128.png"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cloudflare Build Monitor</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="logo">☁️</div>
+      <div>
+        <h1>Cloudflare Builds</h1>
+        <p id="statusText">Loading…</p>
+      </div>
+    </header>
+
+    <details id="settingsPanel" class="card collapsible">
+      <summary>
+        <span>Settings</span>
+        <small id="settingsSummary">Not configured • Sleep after 10 minutes</small>
+      </summary>
+      <div class="details-body settings-grid">
+        <div class="settings-section">
+          <label for="accountId">Account ID</label>
+          <input id="accountId" type="text" placeholder="Cloudflare account ID" autocomplete="off" />
+
+          <label for="apiToken">API Token</label>
+          <input id="apiToken" type="password" placeholder="Token with Pages Read access" autocomplete="off" />
+        </div>
+
+        <div class="settings-section compact-setting">
+          <div class="slider-row">
+            <label for="timeoutSlider">Sleep after inactivity</label>
+            <strong id="timeoutValue">10 minutes</strong>
+          </div>
+          <input id="timeoutSlider" type="range" min="5" max="60" step="5" value="10" />
+          <p class="hint">Timer resets whenever an active build is detected.</p>
+        </div>
+
+        <button id="saveSettings" class="secondary">Save settings</button>
+      </div>
+    </details>
+
+    <section class="actions">
+      <button id="startWatch" class="primary">Start watching</button>
+      <button id="stopWatch" class="secondary">Stop</button>
+      <button id="checkNow" class="secondary">Check now</button>
+    </section>
+
+    <section class="card compact">
+      <div class="metric"><span>Active</span><strong id="activeCount">0</strong></div>
+      <div class="metric"><span>Failed</span><strong id="failedCount">0</strong></div>
+      <div class="metric"><span>Successful</span><strong id="successCount">0</strong></div>
+    </section>
+
+    <section class="card">
+      <h2>Projects</h2>
+      <div id="projectsList" class="projects empty">No projects checked yet.</div>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <span id="lastChecked">Never checked</span>
+        <a class="seezed-link" href="https://seezed.net/tools#cloudflare-build-monitor" target="_blank" rel="noopener noreferrer">seezed.net</a>
+      </div>
+      <span id="lastError"></span>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
